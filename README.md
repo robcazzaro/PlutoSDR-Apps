@@ -12,7 +12,7 @@ Linaro toolchain as per https://wiki.analog.com/university/tools/pluto/devs/embe
 
 Once the prerequisites are met, create a work directory, and copy the included files. Make the cross_build.sh script and the file stripping utility arm-linux-gnueabihf-strip executable. Execute cross_build.sh, and everything should work. I added "Press any key to continue" after each major step to help understand what is going on.
 
-Assuming that all the steps are correctly executed, a couple of files are created in the work directory: plutosdr-apps.tar and plutosdr-apps.zip. As of this writing, the .tar file is roughly 1Mbyte in size. Copy the .tar file to the PlutoSDR with:
+Assuming that all the steps are correctly executed, a couple of files are created in the work directory: plutosdr-apps.tar and plutosdr-apps.zip. As of this writing, the .tar file is roughly 1.5Mbyte in size. Copy the .tar file to the PlutoSDR with:
 
 `scp plutosdr-apps.tar root@192.168.2.1:/tmp` (check that the IP address is the correct one for PlutoSDR, and enter the correct password, usually analog)
 
@@ -42,11 +42,11 @@ usr/bin/rx_fm
 usr/bin/rx_power
 ```
 
-At this point rtl_433 or rx_fm can be executed directly on PlutoSDR, for example `rtl_433 -d driver=plutosdr -f 433M -g 20`
+At this point the plutosdr-apps.tar file can be deleted. And rtl_433 or rx_fm can be executed directly on PlutoSDR, for example `rtl_433 -d driver=plutosdr -f 433M -g 20`
 
 # Notes
 
-The script is working without errors as of February 2022, with firmware 0,34w. Changes to the firmware or the upstream projects might break things, but hopefully the script and Toolchain.cmake are easy to follow and modify
+The script is working without errors as of March 2022, with firmware 0.34w. Changes to the firmware or the upstream projects might break things, but hopefully the script and Toolchain.cmake are easy to follow and modify
 The script is not optimized for multiple runs (e.g. downloads sysroot every time), but can be executed multiple times and only changed files are recompiled
 
 # SoapyPlutoSDR notes
