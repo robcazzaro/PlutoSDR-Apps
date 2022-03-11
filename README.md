@@ -10,9 +10,9 @@ Linaro toolchain as per https://wiki.analog.com/university/tools/pluto/devs/embe
 
 # Project setup, compile and installation
 
-Once the prerequisites are met, create a work directory, and copy the included files. Make the cross_build.sh script executable. Execute cross_build.sh, and everything should work. I added "Press any key to continue" after each major step to help understand what is going on.
+Once the prerequisites are met, create a work directory, and copy the included files. Make the cross_build.sh script and the file stripping utility arm-linux-gnueabihf-strip executable. Execute cross_build.sh, and everything should work. I added "Press any key to continue" after each major step to help understand what is going on.
 
-Assuming that all the steps are correctly executed, a couple of files are created in the work directory: plutosdr-apps.tar and plutosdr-apps.zip. Copy the .tar file to the PlutoSDR with:
+Assuming that all the steps are correctly executed, a couple of files are created in the work directory: plutosdr-apps.tar and plutosdr-apps.zip. As of this writing, the .tar file is roughly 1Mbyte in size. Copy the .tar file to the PlutoSDR with:
 
 `scp plutosdr-apps.tar root@192.168.2.1:/tmp` (check that the IP address is the correct one for PlutoSDR, and enter the correct password, usually analog)
 
