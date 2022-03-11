@@ -3,6 +3,8 @@ Simple scripts to cross compile common SDR apps to run directly on PlutoSDR
 
 Shamelessly plagiarizing https://github.com/zuckschwerdt/PlutoSDR-Apps, here are a couple of scripts to cross compile common SDR apps to run directly on the PlutoSDR.
 
+A big thank you to Eric (aka LamaBleu https://github.com/LamaBleu), who made me realize it's possible to run apps directly on the PlutoSDR, pointed me to his old repository of PlutoSDR apps (http://www.lamableu.net/pluto/ipk/ https://www.lamableu.net/pluto/readme.txt), and supported me along the way.
+
 # Prerequisites
 
 Linux/Ubuntu machine
