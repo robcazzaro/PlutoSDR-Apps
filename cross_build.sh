@@ -44,7 +44,7 @@ cd build ; cmake -DENABLE_PYTHON3=OFF -DENABLE_PYTHON=OFF -DCMAKE_TOOLCHAIN_FILE
 #rm -r build
 cd ..
 
-#read -rsn1 -p "Press any key  to continue..."
+#read -rsn1 -p "Press any key to continue..."
 #echo Building SoapyRemote
 #[ -e SoapyRemote ] || git clone https://github.com/pothosware/SoapyRemote.git
 #cd SoapyRemote
@@ -52,7 +52,7 @@ cd ..
 ##rm -r build
 #cd ..
 
-read -rsn1 -p "Press any key  to continue..."
+read -rsn1 -p "Press any key to continue..."
 echo Building SoapyPlutoSDR
 [ -e SoapyPlutoSDR ] || git clone https://github.com/pothosware/SoapyPlutoSDR.git
 cd SoapyPlutoSDR
@@ -63,7 +63,7 @@ cd build ; cmake -DCMAKE_TOOLCHAIN_FILE=../../Toolchain.cmake -DSoapySDR_DIR=${S
 #rm -r build
 cd ..
 
-read -rsn1 -p "Press any key  to continue..."
+read -rsn1 -p "Press any key to continue..."
 echo Building rx_tools
 [ -e rx_tools ] || git clone https://github.com/rxseger/rx_tools.git
 cd rx_tools
@@ -74,7 +74,7 @@ cd build ; cmake -DCMAKE_TOOLCHAIN_FILE=../../Toolchain.cmake -DSoapySDR_DIR=${S
 #rm -r build
 cd ..
 
-read -rsn1 -p "Press any key  to continue..."
+read -rsn1 -p "Press any key to continue..."
 echo Building rtl_433
 [ -e rtl_433 ] || git clone https://github.com/merbanan/rtl_433
 cd rtl_433
@@ -85,7 +85,11 @@ cd build ; cmake -DCMAKEBUILD_TYPE=Release -DENABLE_RTLSDR=OFF -DENABLE_SOAPYSDR
 #rm -r build
 cd ..
 
-read -rsn1 -p "Press any key  to continue..."
+read -rsn1 -p "Press any key to continue..."
+echo "Stripping files to reduce size (ignore warnings)"
+arm-linux-gnueabihf-strip -sp stage/bin/*
+arm-linux-gnueabihf-strip -sp stage/lib/*
+arm-linux-gnueabihf-strip -sp stage/lib/SoapySDR/modules0.8/*
 echo Packing binaries
 cd ${STAGING}
 if [ ! -d "usr" ]; then
@@ -96,3 +100,6 @@ cp -r bin usr
 7zr a ../plutosdr-apps.zip bin lib
 cd ..
 tar cf plutosdr-apps.tar -C ${STAGING} usr
+echo "Done"
+
+
