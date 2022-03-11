@@ -59,7 +59,7 @@ SoapyPlutoSDR is written to look for PlutSDR either as local, IP or USB. If comp
   ```
 to
 ```
-  // Backends can error, scan each one individually
+        // Backends can error, scan each one individually
 	std::vector<std::string> backends = {"local"};
   ```
   
